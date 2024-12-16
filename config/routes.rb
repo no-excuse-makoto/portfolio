@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  get "home/top"
-  get "home/about" => "home#about"
+  # generate controllerで追加されたルーティング
+  get "/" => "home#top"
+  get "about" => "home#about"
 
 
 

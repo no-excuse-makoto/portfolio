@@ -1,0 +1,19 @@
+<div class="main posts-new">
+  <div class="container">
+    <h1 class="form-heading">投稿する</h1>
+
+    <!-- form_tagメソッドを用いて、データの送信先URLを指定している -->
+    <%= form_tag("/post/create") do %>
+      <div class="form">
+        <div class="form-body">
+        <!-- 下２行で投稿フォームを作成 -->
+          <textarea name = "content"></textarea>
+          <input type="submit" value="投稿">
+        </div>
+      </div>
+    
+    <% end %>
+  </div>
+</div>
+
+

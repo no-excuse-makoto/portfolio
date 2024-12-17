@@ -1,13 +1,32 @@
 Rails.application.routes.draw do
-  # generate controllerで追加されたルーティング
+
+  
+
+  # 1 generate controllerで追加されたルーティング
   get "/" => "home#top"
+  # aboutのURLを省略
   get "about" => "home#about"
 
+  # 2 投稿するために作られた。右側は自分でわかるように追加
+  get "post/index" => "post#index"
 
+  # 4 新規投稿ページ
+  get "post/new" => "post#new"
 
+  # 3　投稿の詳細IDに対応している
+  get "post/:id" => "post#show"
 
+  # 5 投稿作成からデータベースを操作するアクション
+  post "post/create" => "post#create"
 
+  # 6 editアクションへのルーティングを追加
+  get "post/:id/edit" => "post#edit"
 
+  # 7 show.html.erbが受け取ったURLからupdateアクションにルーティングしている
+  post "post/:id/update" => "post#update"
+
+  # 8 削除を押したら、idのあるこのリンクに飛ばされてdestroyアクションに行く
+  post "post/:id/destroy" => "post#destroy"
 
 
 

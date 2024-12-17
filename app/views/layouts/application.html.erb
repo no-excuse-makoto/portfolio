@@ -20,9 +20,45 @@
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-  </head>
+    
 
+
+#     <script>
+#   Turbo.session.drive = false;
+# </script>
+
+<script>
+  if (window.Rails) {
+    console.log("Rails UJS is loaded!");
+  } else {
+    console.error("Rails UJS is NOT loaded!");
+  }
+</script>
+  </head>
+  
+  <!-- 各ビューファイル共通の処理 -->
   <body>
+  <header>
+  <div class="header-logo">
+    <a href="/">bonds</a>
+  </div>
+  <ul class="header-menus">
+    <li>
+      <a href="/about">bondsとは</a>
+    </li>
+    <!-- aタグでもいいがlink toメソッドを利用 -->
+    <li>
+          <!-- ここにlink_toメソッドを用いて投稿一覧ページへのリンクを作成してください -->
+          <%= link_to "投稿一覧","/post/index" %>
+    </li>
+    <li>
+          <!-- 新規投稿ページへのリンクを追加した-->
+          <%= link_to("新規投稿", "/post/new") %>
+        </li>
+  </ul>
+</header>
+
+<!-- 各ビューファイルは以下のyieldに代入され、application.html.erbの一部となる -->
     <%= yield %>
   </body>
   
